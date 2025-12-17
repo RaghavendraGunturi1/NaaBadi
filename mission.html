@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaaBadi | The Mission</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="cursor-glow"></div>
+
+    <nav class="glass-nav">
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="NaaBadi Logo" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" data-key="nav_home">Home</a></li>
+            <li><a href="index.html#videos" data-key="nav_videos">Latest Drops</a></li>
+            <li><a href="mission.html" class="active-link" data-key="nav_mission">Mission</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="lang-toggle" class="icon-btn">TE</button>
+            
+            <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <a href="index.html#subscribe" class="btn-primary-nav" data-key="nav_join">Join Squad</a>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <header class="mission-hero">
+        <div class="mission-content hidden">
+            <div class="badge" data-key="msn_badge">OUR PURPOSE</div>
+            <h1 id="mission-title">WE DON'T BUILD STUDENTS.<br><span class="glitch-text">WE BUILD LEGENDS.</span></h1>
+        </div>
+    </header>
+
+    <section class="story-section">
+        <div class="story-row hidden">
+            <div class="story-text">
+                <h2 data-key="msn_prob_title">The Problem</h2>
+                <p data-key="msn_prob_desc">Students today are drowning in pressure. The system tells you to memorize, but the world expects you to innovate. Anxiety is high, and motivation is low.</p>
+            </div>
+            <div class="story-visual glass-card tilt-card">
+                <i class="fas fa-bolt"></i>
+                <span data-key="msn_word_pressure">Pressure</span>
+            </div>
+        </div>
+
+        <div class="story-row reverse hidden delay">
+            <div class="story-text">
+                <h2 data-key="msn_sol_title">The Solution</h2>
+                <p data-key="msn_sol_desc">NaaBadi is the anti-boring platform. We cut the fluff and deliver raw, high-energy motivation and strategy. We turn your study sessions into power hours.</p>
+            </div>
+            <div class="story-visual glass-card tilt-card">
+                <i class="fas fa-rocket"></i>
+                <span data-key="msn_word_power">Power</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <h2 class="section-title"><span data-key="msn_core">CORE</span> <span class="highlight" data-key="msn_values">VALUES</span></h2>
+        <div class="values-grid">
+            <div class="video-card value-card hidden">
+                <i class="fas fa-brain"></i>
+                <h3 data-key="val_1_title">Mindset First</h3>
+                <p data-key="val_1_desc">Skills are cheap. Mentality is priceless.</p>
+            </div>
+            <div class="video-card value-card hidden delay">
+                <i class="fas fa-fire"></i>
+                <h3 data-key="val_2_title">Relentless Grind</h3>
+                <p data-key="val_2_desc">We don't stop when we're tired. We stop when we're done.</p>
+            </div>
+            <div class="video-card value-card hidden delay-2">
+                <i class="fas fa-users"></i>
+                <h3 data-key="val_3_title">Squad Goals</h3>
+                <p data-key="val_3_desc">You become the average of the 5 people around you. Choose wisely.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <blockquote>
+            "<span data-key="msn_quote">Education is not just about filling a bucket, but lighting a fire.</span>"
+            <cite>- NaaBadi Founder</cite>
+        </blockquote>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 NaaBadi. Built for Dreamers.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

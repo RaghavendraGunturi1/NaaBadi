@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaaBadi | Dominate Your Future</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="cursor-glow"></div>
+
+    <nav class="glass-nav">
+        <a href="#home" class="logo-container">
+            <img src="logo.png" alt="NaaBadi Logo" class="logo-img">
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="#home" data-key="nav_home">Home</a></li>
+            <li><a href="#videos" data-key="nav_videos">Latest Drops</a></li>
+            <li><a href="mission.html" data-key="nav_mission">Mission</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button id="lang-toggle" class="icon-btn">TE</button>
+            
+            <button id="theme-toggle" class="icon-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <a href="#subscribe" class="btn-primary-nav" data-key="nav_join">Join Squad</a>
+        </div>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content hidden">
+            <div class="badge">NAABADI EXCLUSIVE</div>
+            <h1 id="hero-title">DON'T JUST STUDY.<br><span class="glitch-text">DOMINATE.</span></h1>
+            <p data-key="hero_desc">The elite platform for student motivation. Turn your stress into strength and your dreams into reality.</p>
+            
+            <div class="cta-group">
+                <a href="#videos" class="btn-primary" data-key="btn_watch">Start Watching</a>
+                <a href="https://www.youtube.com/@aceonline-appsctgpsc" target="_blank" class="btn-text" data-key="btn_youtube">Visit YouTube &rarr;</a>
+            </div>
+        </div>
+        <div class="hero-visual hidden delay">
+      <div class="logo-orb">
+        <img src="logo.png" alt="NaaBadi Logo">
+      </div>
+    </div>
+        <div class="big-bg-text">FOCUS</div>
+    </header>
+
+    <div class="marquee-strip">
+        <div class="marquee-content">
+            <span>INSPIRE • GRIND • SUCCESS • FOCUS • DREAM • NAABADI • </span>
+            <span>INSPIRE • GRIND • SUCCESS • FOCUS • DREAM • NAABADI • </span>
+            <span>INSPIRE • GRIND • SUCCESS • FOCUS • DREAM • NAABADI • </span>
+            <span>INSPIRE • GRIND • SUCCESS • FOCUS • DREAM • NAABADI • </span>
+        </div>
+    </div>
+
+    <section class="stats-container">
+        <div class="stat-item">
+            <h2 class="counter" data-target="5000">0</h2>
+            <p data-key="stat_students">Students Inspired</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="120">0</h2>
+            <p data-key="stat_videos">Videos Uploaded</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="100">0</h2>
+            <p data-key="stat_success">Success Stories</p>
+        </div>
+    </section>
+
+    <section id="videos" class="videos-section">
+        <h2 class="section-title"><span data-key="sec_latest">LATEST</span> <span class="highlight" data-key="sec_drops">DROPS</span></h2>
+        
+       
+    </section>
+
+    <footer>
+        <p>&copy; 2025 NaaBadi. Built for Dreamers.</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
