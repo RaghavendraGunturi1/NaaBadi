@@ -344,3 +344,49 @@ footer { padding: 5rem 10%; background: var(--bg-color); border-top: 1px solid v
     color: var(--primary);
     font-weight: 700;
 }
+
+/* --- Marquee Strip (Restored) --- */
+.marquee-strip {
+    background: var(--primary); /* Uses your Trust Blue color */
+    color: white;
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(9, 132, 227, 0.2);
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee-content span {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 40px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Pause animation on hover so people can read it */
+.marquee-strip:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Dark Mode Adjustment */
+[data-theme="dark"] .marquee-strip {
+    background: #1a1a1a;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    color: var(--primary);
+}
