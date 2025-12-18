@@ -105,24 +105,8 @@
     <section id="resources" class="videos-section">
         <h2 class="section-title"><span data-key="stories_title_1">IMPACT</span> <span class="highlight" data-key="stories_title_2">STORIES</span></h2>
         
-        <div class="video-grid">
-            {% for story in stories %}
-            <div class="video-card show"> <div class="thumbnail">
-                    <img src="{{ story.thumbnail.url }}" alt="{{ story.title }}">
-                    {% if story.video_url %}
-                    <div class="play-overlay"><a href="{{ story.video_url }}" target="_blank"><i class="fas fa-play"></i></a></div>
-                    {% endif %}
-                </div>
-                <div class="card-info">
-                    <div class="card-tag">SUCCESS STORY</div>
-                    <h3>{{ story.title }}</h3>
-                    <p>{{ story.story_text|truncatechars:80 }}</p>
-                    <span class="story-person"><i class="fas fa-user"></i> {{ story.person_name }}</span>
-                </div>
-            </div>
-            {% empty %}
-            <p style="text-align:center; width:100%;">Stories coming soon.</p>
-            {% endfor %}
+        <div id="video-grid" class="video-grid">
+            <p style="text-align:center; width:100%; color:#888;">Loading latest stories from YouTube...</p>
         </div>
     </section>
 

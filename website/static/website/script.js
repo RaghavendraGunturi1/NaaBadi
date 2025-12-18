@@ -73,7 +73,7 @@ const translations = {
 };
 
 /* =========================================
-   2. VIDEO LOADER (Resources/Success Stories)
+   VIDEO LOADER (Restored Option 2)
    ========================================= */
 const playlistID = "PLjhbIx8ceybW4uFMBc9ikx4fgO9-vrudp"; // Your Playlist ID
 const rssUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistID}`;
@@ -88,44 +88,43 @@ const renderVideos = async () => {
         const data = await response.json();
 
         if (data.status === 'ok') {
-            videosSection.innerHTML = data.items.map((item, index) => {
+            // Get the first 3 videos
+            const videos = data.items.slice(0, 3);
+            
+            videosSection.innerHTML = videos.map((item, index) => {
                 const videoId = item.guid.split(':')[2];
+                // Add a small delay for a cool "staggered" animation effect
                 const delay = index * 0.1; 
+                
                 return `
-                <div class="video-card" style="transition-delay: ${delay}s">
+                <div class="video-card show" style="transition-delay: ${delay}s">
                     <div class="thumbnail">
                         <img src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg" alt="${item.title}">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                        <div class="play-overlay">
+                            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="card-info">
-                        <div class="card-tag">SUCCESS STORY</div>
-                        <h3>${item.title}</h3>
-                        <p>${item.description.substring(0, 80)}...</p>
-                        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="watch-link">Watch Story &rarr;</a>
+                        <div class="card-tag">LATEST VIDEO</div>
+                        <h3>${item.title.substring(0, 60)}...</h3>
+                        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="watch-link">Watch Now &rarr;</a>
                     </div>
                 </div>
                 `;
             }).join('');
-            
-            observeCards();
+        } else {
+            videosSection.innerHTML = '<p>Currently updating stories...</p>';
         }
     } catch (error) {
-        console.error("Error connecting to YouTube:", error);
+        console.error("Error fetching videos:", error);
+        videosSection.innerHTML = '<p>Unable to load videos at this moment.</p>';
     }
 };
 
-const observeCards = () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.video-card').forEach((el) => observer.observe(el));
-};
-
+// Execute the function when the page loads
+document.addEventListener('DOMContentLoaded', renderVideos);
 /* =========================================
    3. LANGUAGE & THEME
    ========================================= */
