@@ -1,7 +1,5 @@
-import os
-
 from pathlib import Path
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -15,7 +13,8 @@ SECRET_KEY = 'django-insecure-&9olooy*7j3!-mb)ao0hi*l1w@dq3m00@0jc3@*t3m9vh_6v+_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -62,6 +61,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# Default to SQLite for localhost, but use Neon for Vercel
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -69,6 +69,10 @@ DATABASES = {
     }
 }
 
+# If there is a DATABASE_URL environment variable, use it (Production)
+database_url = os.environ.get("DATABASE_URL")
+if database_url:
+    DATABASES["default"] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -104,17 +108,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-# At the bottom of the file
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Add this to the bottom of core/settings.py
 
-# Ensure this is pointing to your root static folder
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+import os
+
+# This tells Django to look for the "static" folder in the project root
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Base URL for serving media files
 MEDIA_URL = '/media/'
+
+# Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
