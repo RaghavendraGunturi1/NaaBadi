@@ -112,24 +112,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# Add this to the bottom of core/settings.py
-import os # Make sure this is at the top of the file
-
-# ... scroll down to static files section ...
-
-STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # This is the magic line for Vercel
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Base URL for serving media files
 MEDIA_URL = '/media/'
-
-# Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
