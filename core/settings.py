@@ -1,5 +1,6 @@
+import os
+import dj_database_url # You likely added this earlier, keep it.
 from pathlib import Path
-import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,8 +14,9 @@ SECRET_KEY = 'django-insecure-&9olooy*7j3!-mb)ao0hi*l1w@dq3m00@0jc3@*t3m9vh_6v+_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# core/settings.py
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app', '.now.sh', 'naabadi.co.in', 'www.naabadi.co.in']
 
 # Application definition
 
@@ -30,6 +32,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- MUST BE HERE
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -109,22 +112,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# Add this to the bottom of core/settings.py
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-import os
 
-# This tells Django to look for the "static" folder in the project root
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# Simpler storage that doesn't crash if a file is missing
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Base URL for serving media files
 MEDIA_URL = '/media/'
-
-# Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
