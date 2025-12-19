@@ -1,70 +1,30 @@
+{% extends 'website/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NaaBadi Foundation | Supporting Government Schools</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="{% static 'website/style.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'website/logo.png' %}">
-</head>
-<body>
-    <canvas id="particle-canvas"></canvas>
-    <div class="cursor-glow"></div>
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        <div class="alert-box">
-            <i class="fas fa-check-circle"></i> {{ message }}
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
 
-    <nav class="glass-nav">
-        <a href="#home" class="logo-container">
-            <img src="{% static 'website/logo.png' %}" alt="NaaBadi Logo" class="logo-img">
-        </a>
-        <ul class="nav-links">
-            <li><a href="#home" data-key="nav_home">Home</a></li>
-            <li><a href="#about" data-key="nav_about">About Us</a></li>
-            <li><a href="#programs" data-key="nav_work">Our Work</a></li>
-            <li><a href="#resources" data-key="nav_resources">Resources</a></li>
-            <li><a href="#contact" data-key="nav_contact">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-            <button id="lang-toggle" class="icon-btn">TE</button>
-            <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
-            <a href="#donate" class="btn-primary-nav donate-btn" data-key="nav_donate">Donate Now ❤</a>
-        </div>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-    </nav>
-
-    <header id="home" class="hero">
+{% block content %}
+    <header class="hero">
         <div class="hero-content hidden">
-            <div class="badge" data-key="hero_badge">NON-PROFIT ORGANIZATION</div>
+            <div class="badge">NON-PROFIT ORGANIZATION</div>
             <h1 id="hero-title">EMPOWERING <br><span class="glitch-text">GOVT SCHOOLS.</span></h1>
-            <p data-key="hero_desc">Bridging the gap between potential and opportunity. We provide infrastructure, digital education, and teacher training to transform government schools.</p>
+            <p>Bridging the gap between potential and opportunity. We provide infrastructure, digital education, and teacher training to transform government schools.</p>
             <div class="cta-group">
-                <a href="#get-involved" class="btn-primary" data-key="btn_volunteer">Become a Volunteer</a>
-                <a href="#programs" class="btn-text" data-key="btn_explore">Explore Our Work &rarr;</a>
+                <a href="{% url 'contact' %}" class="btn-primary">Become a Volunteer</a>
+                <a href="{% url 'programs' %}" class="btn-text">Explore Our Work &rarr;</a>
             </div>
         </div>
-        <div class="logo-orb">
-        <img src="{% static 'website/logo.png' %}" alt="NaaBadi Logo">
-      </div>
 
-        
-
+        <div class="hero-visual hidden delay">
+            <div class="image-container tilt-card">
+                    <div class="logo-orb">
+                        <img src="{% static 'website/logo.png' %}" alt="NaaBadi Logo">
+                    </div>
+            </div>
+        </div>
         <div class="big-bg-text">IMPACT</div>
     </header>
+
     <div class="marquee-strip">
         <div class="marquee-content">
-            <span>EDUCATION FOR ALL • EMPOWERING GOVERNMENT SCHOOLS • JOIN THE MOVEMENT • TRANSFORMING LIVES • </span>
-            <span>EDUCATION FOR ALL • EMPOWERING GOVERNMENT SCHOOLS • JOIN THE MOVEMENT • TRANSFORMING LIVES • </span>
             <span>EDUCATION FOR ALL • EMPOWERING GOVERNMENT SCHOOLS • JOIN THE MOVEMENT • TRANSFORMING LIVES • </span>
             <span>EDUCATION FOR ALL • EMPOWERING GOVERNMENT SCHOOLS • JOIN THE MOVEMENT • TRANSFORMING LIVES • </span>
         </div>
@@ -73,98 +33,15 @@
     <section class="stats-container">
         <div class="stat-item">
             <h2 class="counter" data-target="{{ schools_count }}">0</h2>
-            <p data-key="stat_schools">Schools Adopted</p>
+            <p>Schools Adopted</p>
         </div>
         <div class="stat-item">
             <h2 class="counter" data-target="{{ students_count }}">0</h2>
-            <p data-key="stat_students">Students Impacted</p>
+            <p>Students Impacted</p>
         </div>
         <div class="stat-item">
             <h2 class="counter" data-target="200">0</h2>
-            <p data-key="stat_teachers">Teachers Trained</p>
+            <p>Teachers Trained</p>
         </div>
     </section>
-
-    <section id="programs" class="programs-section">
-        <h2 class="section-title"><span data-key="prog_title_1">OUR</span> <span class="highlight" data-key="prog_title_2">INITIATIVES</span></h2>
-        <div class="program-grid">
-            {% for program in programs %}
-            <div class="program-card tilt-card hidden">
-                <div class="p-icon"><i class="{{ program.icon_class }}"></i></div>
-                
-                <h3>{{ program.title }}</h3>
-                <p>{{ program.description }}</p>
-            </div>
-            {% endfor %}
-            {% if not programs %}
-            <p>No initiatives loaded yet. Check back soon!</p>
-            {% endif %}
-        </div>
-    </section>
-
-    <section id="resources" class="videos-section">
-        <h2 class="section-title"><span data-key="stories_title_1">IMPACT</span> <span class="highlight" data-key="stories_title_2">STORIES</span></h2>
-        
-        <div id="video-grid" class="video-grid">
-            <p style="text-align:center; width:100%; color:#888;">Loading latest stories from YouTube...</p>
-        </div>
-    </section>
-
-    <section id="get-involved" class="cta-section">
-        <div class="glass-banner hidden">
-            <h2 data-key="join_title">Join the Movement</h2>
-            <p data-key="join_desc">Become a volunteer and shape the future of India.</p>
-            
-            <form method="POST" class="volunteer-form">
-                {% csrf_token %} <div class="form-group">
-                    {{ form.name }}
-                </div>
-                <div class="form-group">
-                    {{ form.email }}
-                </div>
-                <div class="form-group">
-                    {{ form.phone }}
-                </div>
-                <div class="form-group">
-                    {{ form.message }}
-                </div>
-                
-                <button type="submit" class="btn-primary">Sign Up Now</button>
-            </form>
-            </div>
-        
-        <div class="partners-strip">
-            <p data-key="partner_text">TRUSTED BY</p>
-            <div class="logos">
-                <i class="fab fa-google"></i>
-                <i class="fab fa-microsoft"></i>
-                <i class="fas fa-university"></i>
-                <i class="fas fa-building"></i>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-col">
-                <h3>NaaBadi.</h3>
-                <p data-key="footer_desc">Transforming lives through education.</p>
-            </div>
-            <div class="footer-col">
-                <h4 data-key="footer_contact">Contact Us</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
-                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> help@naabadi.co.in</p>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2025 NaaBadi Foundation.</p>
-        <div class="socials">
-            <a href="https://www.youtube.com/@%E0%B0%A8%E0%B1%87%E0%B0%A8%E0%B1%81%E0%B0%A8%E0%B0%BE%E0%B0%AC%E0%B0%A1%E0%B0%BF" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-    </footer>
-
-    <script src="{% static 'website/script.js' %}"></script>
-</body>
-</html>
+{% endblock %}

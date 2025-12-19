@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaaBadi Foundation | Supporting Government Schools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'website/logo.png' %}">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="cursor-glow"></div>
+
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        <div class="alert-box">
+            <i class="fas fa-check-circle"></i> {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <nav class="glass-nav">
+        <a href="{% url 'home' %}" class="logo-container">
+            <img src="{% static 'website/logo.png' %}" alt="NaaBadi Logo" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}" data-key="nav_home">Home</a></li>
+            <li><a href="{% url 'about' %}" data-key="nav_about">About Us</a></li>
+            <li><a href="{% url 'programs' %}" data-key="nav_work">Our Work</a></li>
+            <li><a href="{% url 'resources' %}" data-key="nav_resources">Resources</a></li>
+            <li><a href="{% url 'contact' %}" data-key="nav_contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="lang-toggle" class="icon-btn">TE</button>
+            <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <a href="{% url 'contact' %}" class="btn-primary-nav donate-btn" data-key="nav_donate">Donate Now ❤</a>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>NaaBadi.</h3>
+                <p data-key="footer_desc">Transforming lives through education.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-key="footer_contact">Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> help@naabadi.co.in</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 NaaBadi Foundation.</p>
+        <div class="socials">
+            <a href="https://www.youtube.com/@%E0%B0%A8%E0%B1%87%E0%B0%A8%E0%B1%81%E0%B0%A8%E0%B0%BE%E0%B0%AC%E0%B0%A1%E0%B0%BF" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="{% static 'website/script.js' %}"></script>
+</body>
+</html>

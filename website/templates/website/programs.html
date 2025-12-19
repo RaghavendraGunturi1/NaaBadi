@@ -1,0 +1,19 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="programs-section">
+    <h2 class="section-title">OUR <span class="highlight">INITIATIVES</span></h2>
+    <div class="program-grid">
+        {% for program in programs %}
+        <div class="program-card tilt-card hidden">
+            <div class="p-icon"><i class="{{ program.icon_class }}"></i></div>
+            <h3>{{ program.title }}</h3>
+            <p>{{ program.description }}</p>
+        </div>
+        {% empty %}
+        <p>Initiatives loading...</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

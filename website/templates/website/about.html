@@ -1,0 +1,48 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-row">
+            <div class="about-visual tilt-card">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rural Education" class="about-img">
+                <div class="experience-badge">
+                    <span class="years">EST.</span>
+                    <span class="text">2024</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="section-tag">WHO WE ARE</div>
+                <h2 class="section-title-left">More Than Just <br><span class="highlight">A Classroom.</span></h2>
+                <p class="lead-text">Talent is universal, but opportunity is not. At <strong>NaaBadi</strong>, we believe that the condition of a school reflects the value we place on a child's future.</p>
+                <div class="quote-box">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"When you empower a government school, you don't just help a student; you uplift an entire community."</p>
+                </div>
+                <div class="about-actions">
+                    <a href="{% url 'contact' %}" class="btn-primary">Make an Impact</a>
+                </div>
+            </div>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="v-icon"><i class="fas fa-heart"></i></div>
+                <h4>Empathy</h4>
+                <p>We serve with dignity. Every child deserves respect.</p>
+            </div>
+            <div class="value-card">
+                <div class="v-icon"><i class="fas fa-rocket"></i></div>
+                <h4>Innovation</h4>
+                <p>We bridge the digital divide using modern technology.</p>
+            </div>
+            <div class="value-card">
+                <div class="v-icon"><i class="fas fa-users"></i></div>
+                <h4>Transparency</h4>
+                <p>100% of public donations go directly to the schools.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

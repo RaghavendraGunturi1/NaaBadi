@@ -1,0 +1,20 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="cta-section">
+    <div class="glass-banner hidden">
+        <h2>Join the Movement</h2>
+        <p>Become a volunteer or donor and shape the future of India.</p>
+        
+        <form method="POST" class="volunteer-form">
+            {% csrf_token %}
+            <div class="form-group">{{ form.name }}</div>
+            <div class="form-group">{{ form.email }}</div>
+            <div class="form-group">{{ form.phone }}</div>
+            <div class="form-group">{{ form.message }}</div>
+            <button type="submit" class="btn-primary">Sign Up Now</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
