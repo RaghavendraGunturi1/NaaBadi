@@ -86,6 +86,7 @@ body {
 }
 /* Hero image / logo size control – BIGGER */
 .logo-orb {
+    transform: translateY(120px);
     transform: translateX(-180px);
 }
 
