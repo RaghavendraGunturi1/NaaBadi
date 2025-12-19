@@ -86,12 +86,12 @@ body {
 }
 /* Hero image / logo size control – BIGGER */
 .logo-orb {
-    transform: translateX(-180px);
+    transform: translateX(-80px);
 }
 
 .logo-orb img {
-    width: 250%;         /* fill the orb properly */
-    max-width: 760px;    /* strong desktop presence */
+    width: 150%;         /* fill the orb properly */
+    max-width: 560px;    /* strong desktop presence */
     height: auto;
     object-fit: cover;
     object-position: center;
