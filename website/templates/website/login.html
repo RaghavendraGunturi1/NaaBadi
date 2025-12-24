@@ -1,0 +1,15 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<section class="cta-section" style="padding-top: 50px;">
+    <div class="glass-banner" style="max-width: 500px; margin: 0 auto;">
+        <h2>Welcome Back</h2>
+        <p>Login to view your donations.</p>
+        <form method="POST" class="volunteer-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-primary" style="width:100%">Login</button>
+        </form>
+        <p style="margin-top:20px;">New here? <a href="{% url 'register' %}" style="color:var(--primary)">Create an account</a></p>
+    </div>
+</section>
+{% endblock %}

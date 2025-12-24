@@ -89,7 +89,7 @@ const renderVideos = async () => {
 
         if (data.status === 'ok') {
             // Get the first 3 videos
-            const videos = data.items.slice(0, 3);
+            const videos = data.items.slice(0, 8);
             
             videosSection.innerHTML = videos.map((item, index) => {
                 const videoId = item.guid.split(':')[2];

@@ -1,0 +1,45 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<section class="about-section">
+    <div class="about-container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 40px;">
+            <h2 class="section-title-left" style="margin:0;">My <span class="highlight">Impact</span></h2>
+            <a href="{% url 'donate' %}" class="btn-primary">New Donation</a>
+        </div>
+
+        <div class="glass-banner" style="padding: 0; overflow:hidden;">
+            {% if donations %}
+            <table style="width:100%; border-collapse: collapse; text-align: left;">
+                <thead style="background: rgba(0,0,0,0.05); border-bottom: 1px solid var(--border-color);">
+                    <tr>
+                        <th style="padding: 20px;">Date</th>
+                        <th style="padding: 20px;">Amount</th>
+                        <th style="padding: 20px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donation in donations %}
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 20px; color: var(--text-muted);">{{ donation.date|date:"M d, Y" }}</td>
+                        <td style="padding: 20px; font-weight:bold; color: var(--text-main);">₹{{ donation.amount }}</td>
+                        <td style="padding: 20px;"><span style="background: #e6fffa; color: #00b894; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight:bold;">{{ donation.status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div style="padding: 40px; text-align: center;">
+                <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: var(--border-color); margin-bottom: 20px;"></i>
+                <p>You haven't made any donations yet.</p>
+                <br>
+                <a href="{% url 'donate' %}" class="btn-text">Make your first contribution &rarr;</a>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="{% url 'logout' %}" style="color: var(--accent); font-weight: bold;">Logout</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

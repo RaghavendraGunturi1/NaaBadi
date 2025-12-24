@@ -1,0 +1,26 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<section class="cta-section" style="padding-top: 50px;">
+    <div class="glass-banner" style="max-width: 600px; margin: 0 auto;">
+        <h2>Make a Donation</h2>
+        <p>Your contribution directly impacts government schools.</p>
+        
+        <div class="stat-item" style="margin-bottom: 20px;">
+            <p style="font-size: 0.9rem;">LOGGED IN AS</p>
+            <h3>{{ request.user.username }}</h3>
+        </div>
+
+        <form method="POST" class="volunteer-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label style="display:block; text-align:left; margin-bottom:5px; font-weight:bold;">Amount (₹)</label>
+                {{ form.amount }}
+            </div>
+            
+            <button type="submit" class="donate-btn" style="width:100%; padding: 15px; border:none; font-size:1.1rem; border-radius:10px; cursor:pointer;">
+                Proceed to Pay ❤
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}
