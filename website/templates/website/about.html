@@ -4,45 +4,76 @@
 {% block content %}
 <section class="about-section">
     <div class="about-container">
+        
         <div class="about-row">
             <div class="about-visual tilt-card">
                 <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rural Education" class="about-img">
                 <div class="experience-badge">
-                    <span class="years">EST.</span>
-                    <span class="text">2024</span>
+                    <span class="years">SINCE</span>
+                    <span class="text">2025</span>
                 </div>
             </div>
+            
             <div class="about-content">
-                <div class="section-tag">WHO WE ARE</div>
-                <h2 class="section-title-left">More Than Just <br><span class="highlight">A Classroom.</span></h2>
-                <p class="lead-text">Talent is universal, but opportunity is not. At <strong>NaaBadi</strong>, we believe that the condition of a school reflects the value we place on a child's future.</p>
+                <div class="section-tag">OUR STORY</div>
+                <h2 class="section-title-left">Bridging the Gap Between <br><span class="highlight">Talent & Opportunity.</span></h2>
+                
+                <p class="lead-text">
+                    "A child's zip code should not determine their destiny."
+                </p>
+                <p class="body-text">
+                    In India, millions of brilliant minds sit in classrooms with peeling paint, no computers, and outdated books. <strong>NaaBadi</strong> (My School) was born from a simple realization: <em>The talent is there. The infrastructure is not.</em>
+                </p>
+                <p class="body-text">
+                    We are not just an NGO; we are a movement of engineers, educators, and citizens who refuse to let potential go to waste. We adopt neglected government schools and transform them into centers of excellence—renovating walls, installing digital labs, and restoring dignity to public education.
+                </p>
+                
                 <div class="quote-box">
                     <i class="fas fa-quote-left"></i>
-                    <p>"When you empower a government school, you don't just help a student; you uplift an entire community."</p>
+                    <p>"We don't just build classrooms; we build runways for dreams to take flight."</p>
                 </div>
+
                 <div class="about-actions">
-                    <a href="{% url 'contact' %}" class="btn-primary">Make an Impact</a>
+                    <a href="{% url 'donate' %}" class="btn-primary">Invest in a Future</a>
+                    <a href="{% url 'programs' %}" class="btn-text">See Our Impact &rarr;</a>
                 </div>
             </div>
         </div>
+
+        <div style="text-align:center; margin-bottom:40px;">
+            <h3 style="font-size:2rem; font-weight:800;">Our <span class="highlight">DNA</span></h3>
+            <p style="color:var(--text-muted);">The principles that guide every decision we make.</p>
+        </div>
+
         <div class="values-grid">
             <div class="value-card">
-                <div class="v-icon"><i class="fas fa-heart"></i></div>
-                <h4>Empathy</h4>
-                <p>We serve with dignity. Every child deserves respect.</p>
+                <div class="v-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h4>Dignity First</h4>
+                <p>We believe charity isn't about pity; it's about partnership. We serve our students with the same respect we would give our own children.</p>
             </div>
             <div class="value-card">
-                <div class="v-icon"><i class="fas fa-rocket"></i></div>
-                <h4>Innovation</h4>
-                <p>We bridge the digital divide using modern technology.</p>
+                <div class="v-icon"><i class="fas fa-laptop-code"></i></div>
+                <h4>Digital Equality</h4>
+                <p>In the 21st century, coding is literacy. We ensure rural students have access to the same technology as their urban peers.</p>
             </div>
             <div class="value-card">
-                <div class="v-icon"><i class="fas fa-users"></i></div>
-                <h4>Transparency</h4>
-                <p>100% of public donations go directly to the schools.</p>
+                <div class="v-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h4>Radical Transparency</h4>
+                <p>Trust is our currency. Every rupee you donate is tracked, accounted for, and visible on your dashboard.</p>
             </div>
         </div>
+
+        <div class="glass-banner" style="margin-top: 80px; text-align: center;">
+            <h2>Be The Change You Wish To See</h2>
+            <p style="max-width: 600px; margin: 10px auto 30px auto; color: var(--text-muted);">
+                You don't need to be a billionaire to make a difference. You just need to care. Join us in rewriting the story of government education in India.
+            </p>
+            <div class="cta-group" style="justify-content: center;">
+                <a href="{% url 'register' %}" class="btn-primary">Join the Squad</a>
+                <a href="{% url 'donate' %}" class="btn-text" style="border: 1px solid var(--primary); padding: 14px 30px; border-radius: 50px;">Make a Donation</a>
+            </div>
+        </div>
+
     </div>
 </section>
 {% endblock %}
-
